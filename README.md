@@ -3,8 +3,11 @@
 > A Vue.js project
 
 ##小结
-####1.豆瓣API跨域
+
+#### 1.豆瓣API跨域
+
 参考[vue-zhihu-daily](https://github.com/cccyb/vue-zhihu-daily)，使用vue-cli自带的config的proxyTable文件配置进行解决，配置非常简单：
+
 ```json
 proxyTable: {
  '/movie/coming_soon': {
@@ -16,11 +19,15 @@ proxyTable: {
             }
 }
 ```
+
 ####2.引入Bootstrap
+
 参考了[windows下vue-cli及webpack 构建网站(二)导入bootstrap样式](http://blog.csdn.net/ansu2009/article/details/53305134)
 
 ####3.自定义Component
+
 - 在`/src/components`下新建`loading`文件夹，包含`Loading.vue`和`index.js`文件，其中，`Loading.vue`是载入动画的实现，`index.js`文件定义并导出`Component`
+
 ```javascript
 const LoadingComponent = require('./Loading.vue')
 const loading = {
@@ -30,11 +37,14 @@ const loading = {
 }
 module.exports = loading
 ```
+
 - 使用，在`main.js`中加入以下代码
+
 ```javascript
 import Loading from './components/Loading'
 Vue.use(Loading)
 ```
+
 ## Build Setup
 
 ``` bash
