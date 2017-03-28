@@ -20,6 +20,24 @@ proxyTable: {
 }
 ```
 
+另外一种方法：[使用express启动一个服务器来进行代理](https://github.com/pomelo-chuan/Zhihu-Daily-Vue.js/blob/master/src/node-file.js)
+
+```javascript
+var express = require('express');
+var router = express.Router();
+var request = require('request');
+router.get('/news/latest', function (req, res, next) {
+    var options = {
+        method: "GET",
+        url: "http://news-at.zhihu.com/api/4/news/latest"
+    };
+    request(options, function (error, response, body) {
+        if (error) throw new Error(error);
+        res.json(JSON.parse(body))
+    });
+});
+```
+
 #### 2.引入Bootstrap
 
 参考了[windows下vue-cli及webpack 构建网站(二)导入bootstrap样式](http://blog.csdn.net/ansu2009/article/details/53305134)
