@@ -25,7 +25,7 @@ export default new Router({
       component: Theaters
     },
     {
-      path: '/coming_soon',
+      path: '/coming_soon*',
       name: 'Coming',
       component: Coming
     },

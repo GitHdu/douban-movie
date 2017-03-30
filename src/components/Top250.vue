@@ -6,7 +6,7 @@
                     <router-link to="/in_theaters" tag="li" active-class="active">
                         <a href="javascript:;">正在热映</a>
                     </router-link>
-                    <router-link to="/coming_soon" tag="li" active-class="active">
+                    <router-link to="/coming_soon?start=0&count=10" tag="li" active-class="active">
                         <a href="javascript:;">即将上映</a>
                     </router-link>
                     <router-link to="/top250" tag="li" active-class="active">
@@ -17,7 +17,7 @@
             <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" >
                 <h2 class="page-header" v-text="movies.title"></h2>
                 <div class="list-group">
-                    <router-link :to="'/subject/'+item.id" v-for="item in movies.subjects" active-class="active">
+                    <router-link :to="'/subject/'+item.id" v-for="(item,index) in movies.subjects" active-class="active">
                         <a class="list-group-item" href="javascript:;">
                             <span class="badge">{{ item.rating.average }}</span>
                             <div class="media">
