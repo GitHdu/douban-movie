@@ -42,7 +42,7 @@ export default {
            }
   },
   mounted(){
-    this.getData(0)
+    this.getData(0);
     let _this = this
     // vue在定时器函数里this上下文指向不一样
     setTimeout(function() {
