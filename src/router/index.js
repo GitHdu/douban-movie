@@ -4,6 +4,7 @@ import App from '@/App'
 import Coming from '../components/Coming.vue'
 import Theaters from '../components/Theaters.vue'
 import TOP250 from '../components/TOP250.vue'
+import SEARCH from '../components/Search.vue'
 import Subject from '../components/Subject.vue'
 
 Vue.use(Router)
@@ -33,6 +34,11 @@ export default new Router({
       path: '/top250',
       name: 'TOP250',
       component: TOP250
+    },
+    {
+      path: '/search',
+      name: 'SEARCH',
+      component: SEARCH
     },
     {
     path:'/subject/:id',

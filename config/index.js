@@ -55,7 +55,14 @@ module.exports = {
                 pathRewrite: {
                     '^/movie/subject': '/movie/subject'
                 }
-            }
+            },
+            '/movie/search': {
+                    target: 'https://api.douban.com/v2',
+                    changeOrigin: true,
+                    pathRewrite: {
+                        '^/movie/search': '/movie/search'
+                    }
+                }
         },
         // CSS Sourcemaps off by default because relative paths are "buggy"
         // with this option, according to the CSS-Loader README

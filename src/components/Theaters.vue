@@ -17,12 +17,12 @@
             <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" >
                 <h2 class="page-header" v-text="movies.title"></h2>
                 <div class="list-group">
-                    <router-link :to="'/subject/'+item.id" v-for="(item,index) in movies.subjects" active-class="active" >
+                    <router-link :to="'/subject/'+item.id" v-for="(item,index) in movies.subjects" :key="item.id" active-class="active" >
                         <a class="list-group-item" href="javascript:;">
                             <span class="badge">{{ item.rating.average }}</span>
                             <div class="media">
                                 <div class="media-left">
-                                    <img class="media-object" :src=item.images.small >
+                                    <img class="media-object" :src="item.images.small" >
                                 </div>
                                 <div class="media-body">
                                     <h3 class="media-heading">{{ item.title }}</h3>

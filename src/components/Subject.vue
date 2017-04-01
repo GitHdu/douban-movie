@@ -5,11 +5,11 @@
     <div class="list-group">
         <div class="media">
                                 <div class="media-left">
-                                    <img :src=movies.images.large >
+                                    <img :src="movies.images.large" >
                                 </div>
                                 <div class="media-body">
                                 <div class="head">
- <h2 class="media-heading">导演：<em  v-for="(item, index) in movies.directors">{{item.name}}</em></h2> <h3>上映时间：{{movies.year}}</h3>
+ <h2 class="media-heading">导演：<em  v-for="(item, index) in movies.directors" :key="index">{{item.name}}</em></h2> <h3>上映时间：{{movies.year}}</h3>
                                     <p class="type">类型：<strong>{{movies.genres.join('、')}}</strong></p>
                                 </div>
 
