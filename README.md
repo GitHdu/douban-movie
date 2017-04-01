@@ -65,7 +65,7 @@ Vue.use(Loading)
 
 #### 4.父子组件间通信
 
-######  4.1 父组件通过    `props`传递数据给子组件 父组件通过   `props`传递数据给子组件
+######  4.1 父组件通过`props`传递数据给子组件
 
 父组件`App.vue`
 
@@ -80,15 +80,18 @@ export default{
     props : ['childMsg'],   //childMsg是接受到的数据
 }
 ```
-###### 4.2 子组件通过`$emit`事件发送数据给父组件4.2子组件通过`$emit`事件发送数据给父组件
+###### 4.2 子组件通过`$emit`事件发送数据给父组件
+
 子组件`page.vue`：
 ```js
- _this.$emit('movies',res.data)//子组件发送一个movies事件
+//子组件发送一个movies事件
+ _this.$emit('movies',res.data)
 ```
 
 父组件：
 ```js
-<Page @movies="getMovies"></Page>//父组件通过movies事件绑定回调函数获得子组件发送过来的数据value
+//父组件通过movies事件绑定回调函数获得子组件发送过来的数据value
+<Page @movies="getMovies"></Page>
 methods:{
     getMovies(value){
       this.movies=value
