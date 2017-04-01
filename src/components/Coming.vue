@@ -38,14 +38,12 @@
                  <router-link :to="'/coming_soon?start='+index*10+'&count=10'"" tag="li" v-for="(item,index) in list" :key="index" active-class='active' exact>
                     <a href="javascript:;">{{item}}</a>
                 </router-link>
-
               </ul>
             </nav>
                 </div>
             </div>
         </div>
     </div>
-
 </template>
 <script>
 import axios from 'axios'
@@ -81,11 +79,9 @@ export default {
          _this.pages=Math.ceil( _this.movies.total/10)
         for (var i = 1; i <= _this.pages; i++) {
           _this.list.push(i)
-
         }
       })
     }
   }
-
 }
 </script>

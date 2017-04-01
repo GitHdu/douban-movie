@@ -18,12 +18,13 @@
             </a>
         </router-link>
     </div>
-
+<Page @movies="getMovies"></Page>
 </div>
 
 </template>
 <script>
 import axios from 'axios'
+import Page from './Pages'
 export default {
   name:"Search",
   data(){
@@ -31,28 +32,25 @@ export default {
       movies:{}
     }
   },
-  mounted(){
-    this.getData()
+  components:{
+    Page
+  },
+  methods:{
+    getMovies(value){
+      this.movies=value
+    }
   },
   watch:{
       $route(to){
-        //console.log(to);
+        console.log(to);
         var reg=/\/search\?q=\S+/;
         if(reg.test(to.fullPath)){
+          console.log(11)
           location.reload()
         }
       }
-    },
-  methods:{
-    getData(){
-      var _this = this
-      var searchContent = this.$route.query.q
-      axios.get('/movie/search?q='+searchContent).then(function(res){
-          //console.log(res.data)
-          _this.movies = res.data
-        })
-    }
   }
+
 }
 </script>
 <style>
