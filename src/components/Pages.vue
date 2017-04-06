@@ -1,6 +1,6 @@
 <template>
   <ul class="pagination" v-if="show">
-            <li v-show="current != 1" @click="current-- && goto(current)" ><a href="javascript:;">上一页</a></li>
+            <li v-show="current != 1" @click="current-- && goto(current--)" ><a href="javascript:;">上一页</a></li>
             <li v-for="index in pages" @click="goto(index)" :class="{'active':current == index}" :key="index">
               <a href="javascript:;" >{{index}}</a>
             </li>
@@ -42,7 +42,7 @@ export default {
            }
   },
   mounted(){
-    this.getData(0);
+    this.getData(1);
     let _this = this
     // vue在定时器函数里this上下文指向不一样
     setTimeout(function() {
@@ -58,10 +58,11 @@ export default {
     },
     getData(id){
       var _this=this;
-      axios.get('/movie/search?q='+this.$route.query.q+'&start='+id+'&count=10').then(function(res){
+      var _id = 10*(id-1)
+      axios.get('/movie/search?q='+this.$route.query.q+'&start='+_id+'&count=10').then(function(res){
         //console.log(res.data)
          _this.$emit('movies',res.data)
-        _this.allpage =res.data.total
+        _this.allpage =Math.ceil(res.data.total/10)
 
       })
     }

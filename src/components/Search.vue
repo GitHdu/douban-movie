@@ -42,10 +42,8 @@ export default {
   },
   watch:{
       $route(to){
-        console.log(to);
         var reg=/\/search\?q=\S+/;
         if(reg.test(to.fullPath)){
-          console.log(11)
           location.reload()
         }
       }
