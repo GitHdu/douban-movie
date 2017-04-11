@@ -10,14 +10,22 @@
 
 ```javascript
 proxyTable: {
- '/movie/coming_soon': {
-                target: 'https://api.douban.com/v2',
-                changeOrigin: true,
-                pathRewrite: {
-                    '^/movie/coming_soon': '/movie/coming_soon'
-                }
-            }
+    '/api': {
+        target: 'http://api.douban.com/v2',
+        changeOrigin: true,
+        pathRewrite: {
+            '^/api': ''
+        }
+    }
 }
+```
+
+调用：
+
+```javascript
+ axios.get('api/movie/in_theaters').then((res)=>{
+        console.log(res);
+ })
 ```
 
 另外一种方法：[使用express启动一个服务器来进行代理](https://github.com/pomelo-chuan/Zhihu-Daily-Vue.js/blob/master/src/node-file.js)
