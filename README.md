@@ -45,6 +45,7 @@ router.get('/news/latest', function (req, res, next) {
     });
 });
 ```
+更多跨域总结详见[这里](./CROSSDOMAIN.md)
 
 #### 2.引入Bootstrap
 
